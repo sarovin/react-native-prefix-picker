@@ -1,8 +1,8 @@
 {
   "name": "react-native-prefix-picker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple iOS and Android picker for React Native",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/eslint/bin/eslint.js ."
   },
