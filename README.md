@@ -38,8 +38,7 @@ class Login extends Component {
 					backgroundColor: 'white',
 					marginTop: 80,
 					padding: 20,
-				}}
-			>
+				}}>
 				<Select
 					ref="SELECT1"
 					optionListRef={() => this.refs.picker}
@@ -62,8 +61,7 @@ class Login extends Component {
 						textAlign: 'center',
 						margin: 10,
 						color: '#f87f1d',
-					}}
-				>
+					}}>
 					TEST
 				</Text>
 				<Picker
@@ -73,8 +71,7 @@ class Login extends Component {
 						this.setState({
 							prefix: option,
 						});
-					}}
-				/>
+					}}/>
 			</View>
 		);
 	}
