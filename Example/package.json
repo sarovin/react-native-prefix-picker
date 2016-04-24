@@ -1,0 +1,25 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "example for react native prefix picker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sarovin/react-native-prefix-picker/Example"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "picker",
+    "prefix"
+  ],
+  "author": "Saro Vindigni",
+  "license": "MIT",
+  "dependencies": {
+    "react-native": "^0.19.0",
+    "react-native-prefix-picker": "0.0.3"
+  }
+}

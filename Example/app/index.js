@@ -1,17 +1,4 @@
-# React Native Prefix Picker [![react-native-prefix-picker](https://img.shields.io/npm/dm/localeval.svg?maxAge=2592000)](https://www.npmjs.org/package/react-native-prefix-picker)[![Codacy Badge](https://api.codacy.com/project/badge/grade/1116573675bb49339b9fd0ee71bcd665)](https://www.codacy.com/app/sarovin86/react-native-prefix-picker)[![npm version](https://badge.fury.io/js/react-native-prefix-picker.svg)](http://badge.fury.io/js/react-native-prefix-picker)
-A simple iOS and Android picker for React Native
-
-## Introduction
-React Native Prefix Picker is simple, customizable and easy to use Picker in React Native. Works with both Android and IOS.
-
-## Installation
-```
-npm i react-native-prefix-picker --save
-```
-
-## Usage
-
-```
+// index.js
 import React, {
   Component,
   View,
@@ -38,7 +25,8 @@ class Login extends Component {
           backgroundColor: 'white',
           marginTop: 80,
           padding: 20,
-        }}>
+        }}
+      >
         <Select
           ref="SELECT1"
           optionListRef={() => this.refs.picker}
@@ -61,7 +49,8 @@ class Login extends Component {
             textAlign: 'center',
             margin: 10,
             color: '#f87f1d',
-          }}>
+          }}
+        >
           TEST
         </Text>
         <Picker
@@ -71,18 +60,11 @@ class Login extends Component {
             this.setState({
               prefix: option,
             });
-          }}/>
+          }}
+        />
       </View>
     );
   }
 }
 
 export default Login;
-```
-
-## Demo
-<p align="center">
-  <img src ="https://raw.githubusercontent.com/sarovin/react-native-prefix-picker/master/picker.gif" />
-</p>
-
-- Inspired by https://github.com/alinz/react-native-dropdown and https://github.com/puredazzle/react-native-simple-picker
