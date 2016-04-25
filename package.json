@@ -1,6 +1,6 @@
 {
   "name": "react-native-prefix-picker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple iOS and Android picker for React Native",
   "main": "lib/index.js",
   "scripts": {
@@ -33,6 +33,6 @@
   },
   "homepage": "https://github.com/sarovin/react-native-prefix-picker",
   "dependencies": {
-    "world-countries": "^1.7.8"
+
   }
 }
