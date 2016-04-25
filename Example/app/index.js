@@ -29,7 +29,7 @@ class Login extends Component {
       >
         <Select
           ref="SELECT1"
-          optionListRef={() => this.refs.picker}
+          pickerRef={() => this.refs.picker}
           width={60}
           height={45}
           style={{

@@ -9,8 +9,12 @@ React Native Prefix Picker is simple, customizable and easy to use Picker in Rea
 npm i react-native-prefix-picker --save
 ```
 
-## Usage
+## Demo
+<p align="center">
+  <img src ="https://raw.githubusercontent.com/sarovin/react-native-prefix-picker/master/picker.gif" />
+</p>
 
+## Usage
 ```
 import React, {
   Component,
@@ -80,9 +84,24 @@ class Login extends Component {
 export default Login;
 ```
 
-## Demo
-<p align="center">
-  <img src ="https://raw.githubusercontent.com/sarovin/react-native-prefix-picker/master/picker.gif" />
-</p>
+## Configuration
+##### Select:
+| Property | Type | Default | Description |
+|---------------|----------|--------------|----------------------------------------------------------------|
+| width | number | 200 | Width of the selection |
+| height | number | 40 | Height of the selection |
+| pickerRef | function | required | Reference to <Picker /> to display the selection menu |
+| selected | string | required | The value to be displayed. |
+| style | object | | Custom styles to be applied if supplied |
+| styleText | object | | Custom styles to be applied if supplied |
+
+##### Picker:
+| Property | Type | Default | Description |
+|---------------|----------|--------------|----------------------------------------------------------------|
+| buttonColor | string | #007AFF | Custom styles to be applied if supplied. |
+| options | array | required | The value to be displayed. |
+| labels | array | null | Label for Picker.Item |
+| itemStyle | object | | Custom styles to be applied if supplied. |
+| onSubmit | function | required | function will be called when item button is pressed |
 
 - Inspired by https://github.com/alinz/react-native-dropdown and https://github.com/puredazzle/react-native-simple-picker
