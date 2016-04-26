@@ -23,14 +23,12 @@ import React, {
 } from 'react-native';
 import { Select, Picker } from 'react-native-prefix-picker';
 
-const options = ['39', '1', '2', '3'];
-
 class Login extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      prefix: options[0],
+      prefix: '',
     };
   }
 
@@ -42,10 +40,11 @@ class Login extends Component {
           backgroundColor: 'white',
           marginTop: 80,
           padding: 20,
-        }}>
+        }}
+      >
         <Select
           ref="SELECT1"
-          optionListRef={() => this.refs.picker}
+          pickerRef={() => this.refs.picker}
           width={60}
           height={45}
           style={{
@@ -65,17 +64,19 @@ class Login extends Component {
             textAlign: 'center',
             margin: 10,
             color: '#f87f1d',
-          }}>
+          }}
+        >
           TEST
         </Text>
         <Picker
           ref={'picker'}
-          options={options}
+          selectedValue={'IT'}
           onSubmit={(option) => {
             this.setState({
               prefix: option,
             });
-          }}/>
+          }}
+        />
       </View>
     );
   }
@@ -99,8 +100,7 @@ export default Login;
 | Property | Type | Default | Description |
 |---------------|----------|--------------|----------------------------------------------------------------|
 | buttonColor | string | #007AFF | Custom styles to be applied if supplied. |
-| options | array | required | The value to be displayed. |
-| labels | array | null | Label for Picker.Item |
+| selectedValue | string | null | The default value. |
 | itemStyle | object | | Custom styles to be applied if supplied. |
 | onSubmit | function | required | function will be called when item button is pressed |
 
