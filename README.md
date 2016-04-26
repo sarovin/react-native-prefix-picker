@@ -15,7 +15,7 @@ npm i react-native-prefix-picker --save
 
 ## Demo
 <p align="center">
-  <img src ="https://raw.githubusercontent.com/sarovin/react-native-prefix-picker/master/picker.gif" />
+  <img src ="https://raw.githubusercontent.com/sarovin/react-native-prefix-picker/master/picker-1.gif" />
 </p>
 
 ## Usage
