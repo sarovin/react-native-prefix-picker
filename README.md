@@ -1,8 +1,12 @@
+
 # React Native Prefix Picker [![react-native-prefix-picker](https://img.shields.io/npm/dm/react-native-prefix-picker.svg?maxAge=2592000)](https://www.npmjs.org/package/react-native-prefix-picker) [![Codacy Badge](https://api.codacy.com/project/badge/grade/1116573675bb49339b9fd0ee71bcd665)](https://www.codacy.com/app/sarovin86/react-native-prefix-picker) [![npm version](https://badge.fury.io/js/react-native-prefix-picker.svg)](http://badge.fury.io/js/react-native-prefix-picker)
 A simple iOS and Android picker for React Native
 
 ## Introduction
 React Native Prefix Picker is simple, customizable and easy to use Picker in React Native. Works with both Android and IOS.
+
+## NEW VERSION
+Now the prefixs are preloaded
 
 ## Installation
 ```
