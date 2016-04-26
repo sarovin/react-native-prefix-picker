@@ -20,7 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "react-native": "^0.19.0",
-    "react-native-prefix-picker": "0.0.4",
+    "react-native-prefix-picker": "1.0.1",
     "world-countries": "^1.7.8"
   }
 }
