@@ -33,6 +33,6 @@
   },
   "homepage": "https://github.com/sarovin/react-native-prefix-picker",
   "dependencies": {
-
+    "world-countries": "^1.7.8"
   }
 }

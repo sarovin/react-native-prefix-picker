@@ -6,14 +6,12 @@ import React, {
 } from 'react-native';
 import { Select, Picker } from 'react-native-prefix-picker';
 
-const options = ['39', '1', '2', '3'];
-
 class Login extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      prefix: options[0],
+      prefix: '',
     };
   }
 
@@ -55,7 +53,7 @@ class Login extends Component {
         </Text>
         <Picker
           ref={'picker'}
-          options={options}
+          selectedValue={'IT'}
           onSubmit={(option) => {
             this.setState({
               prefix: option,
