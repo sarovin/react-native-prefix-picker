@@ -107,5 +107,3 @@ export default Login;
 | selectedValue | string | null | The default value. |
 | itemStyle | object | | Custom styles to be applied if supplied. |
 | onSubmit | function | required | function will be called when item button is pressed |
-
-- Inspired by https://github.com/alinz/react-native-dropdown and https://github.com/puredazzle/react-native-simple-picker
