@@ -1,3 +1,5 @@
 Example/
 .idea
 .babelrc
+.eslintrc.js
+.editorconfig
