@@ -4,7 +4,11 @@
 
 # Xcode
 #
-build/
+!**/*.xcodeproj
+!**/*.pbxproj
+!**/*.xcworkspacedata
+!**/*.xcsettings
+!**/*.xcscheme
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -22,19 +26,28 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
-# Android/IJ
-#
+# Gradle
+/build/
+/Example/android/app/build/
+/Examples/android/app/gradle/
+/Examples/android/app/gradlew
+/Examples/android/app/gradlew.bat
+
+# Android
 .idea
 .gradle
 local.properties
+*.iml
+/android/
 
-# node.js
-#
-node_modules/
-npm-debug.log
+# Node
+node_modules
+*.log
+.nvm
 
 # BUCK
-buck-out/
+buck-out
 \.buckd/
 android/app/libs
 android/keystores/debug.keystore
+.buckd
