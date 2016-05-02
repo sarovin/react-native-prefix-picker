@@ -1,5 +1,5 @@
 
-# React Native Prefix Picker [![Build Status](https://img.shields.io/circleci/project/sarovin/react-native-prefix-picker/master.svg?style=flat)] [![react-native-prefix-picker](https://img.shields.io/npm/dt/react-native-prefix-picker.svg?style=flat)](https://www.npmjs.org/package/react-native-prefix-picker) [![Codacy Badge](https://img.shields.io/codacy/1116573675bb49339b9fd0ee71bcd665/master.svg?style=flat)](https://www.codacy.com/app/sarovin86/react-native-prefix-picker) [![npm version](https://img.shields.io/npm/v/react-native-prefix-picker.svg?style=flat)](https://www.npmjs.com/package/react-native-prefix-picker)
+# React Native Prefix Picker [![Build Status](https://img.shields.io/circleci/project/sarovin/react-native-prefix-picker/master.svg?style=flat)]() [![react-native-prefix-picker](https://img.shields.io/npm/dt/react-native-prefix-picker.svg?style=flat)](https://www.npmjs.org/package/react-native-prefix-picker) [![Codacy Badge](https://img.shields.io/codacy/1116573675bb49339b9fd0ee71bcd665/master.svg?style=flat)](https://www.codacy.com/app/sarovin86/react-native-prefix-picker) [![npm version](https://img.shields.io/npm/v/react-native-prefix-picker.svg?style=flat)](https://www.npmjs.com/package/react-native-prefix-picker)
 A simple iOS and Android picker for React Native
 
 ## Introduction
