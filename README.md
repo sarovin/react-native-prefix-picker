@@ -99,6 +99,7 @@ export default Login;
 | selected | string | required | The value to be displayed. |
 | style | object | | Custom styles to be applied if supplied |
 | styleText | object | | Custom styles to be applied if supplied |
+| disabled | bool | false | If true, disable all interactions for this component. |
 
 ##### Picker:
 | Property | Type | Default | Description |
