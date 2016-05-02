@@ -4,4 +4,7 @@ module.exports = {
     'react',
   ],
   parser: 'babel-eslint',
+  rules: {
+    'import/no-unresolved': 0,
+  }
 };
