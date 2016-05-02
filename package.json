@@ -1,6 +1,6 @@
 {
   "name": "react-native-prefix-picker",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple iOS and Android picker for React Native",
   "main": "lib/index.js",
   "scripts": {

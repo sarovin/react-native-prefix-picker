@@ -53,6 +53,7 @@ class Login extends Component {
         </Text>
         <Picker
           ref={'picker'}
+          transparent
           selectedValue={'IT'}
           onSubmit={(option) => {
             this.setState({

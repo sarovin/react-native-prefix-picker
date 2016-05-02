@@ -107,3 +107,5 @@ export default Login;
 | selectedValue | string | null | The default value. |
 | itemStyle | object | | Custom styles to be applied if supplied. |
 | onSubmit | function | required | function will be called when item button is pressed |
+| transparent | bool | false | Transparent style for Modal |
+
