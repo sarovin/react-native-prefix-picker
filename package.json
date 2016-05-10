@@ -2,9 +2,11 @@
   "name": "react-native-prefix-picker",
   "version": "1.0.8",
   "description": "A simple iOS and Android picker for React Native",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "./node_modules/eslint/bin/eslint.js ."
+    "test": "mocha --compilers js:babel-core/register --require react-native-mock/mock",
+    "test:watch": "npm run test -- --watch",
+    "eslint": "eslint index.js src/ test/ Example/*.js Example/app/; exit 0;"
   },
   "repository": {
     "type": "git",
@@ -24,12 +26,18 @@
     "url": "https://github.com/sarovin/react-native-prefix-picker/issues"
   },
   "devDependencies": {
+    "babel-core": "^6.7.6",
     "babel-eslint": "^6.0.3",
     "eslint": "^2.8.0",
     "eslint-config-airbnb": "^8.0.0",
     "eslint-plugin-import": "^1.5.0",
     "eslint-plugin-jsx-a11y": "^1.0.2",
-    "eslint-plugin-react": "^5.0.1"
+    "eslint-plugin-react": "^5.0.1",
+    "mocha": "^2.4.5",
+    "mocha-junit-reporter": "^1.11.1",
+    "react": "^0.14.8",
+    "react-native": "^0.25.1",
+    "react-native-mock": "0.0.6"
   },
   "homepage": "https://github.com/sarovin/react-native-prefix-picker",
   "dependencies": {
