@@ -3,8 +3,5 @@ module.exports = {
   plugins: [
     'react',
   ],
-  parser: 'babel-eslint',
-  rules: {
-    'import/no-unresolved': 0,
-  }
+  parser: 'babel-eslint'
 };
