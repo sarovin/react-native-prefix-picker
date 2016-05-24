@@ -12,5 +12,4 @@ test:
     - touch $CIRCLE_TEST_REPORTS/eslint/eslint.xml
   override:
     - node node_modules/eslint/bin/eslint index.js src/ test/ -o $CIRCLE_TEST_REPORTS/eslint/eslint.xml -f junit
-    - npm run build
     - MOCHA_FILE=$CIRCLE_TEST_REPORTS/mocha/junit.xml npm test -- --reporter mocha-junit-reporter
