@@ -165,7 +165,7 @@ class CustomPicker extends Component {
 
     return (
       <Modal
-        animated
+        animationType={'fade'}
         transparent={this.props.transparent}
         visible={this.state.modalVisible}
         onRequestClose={() => { this.onPressCancel(); }}
