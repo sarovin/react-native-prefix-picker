@@ -19,8 +19,8 @@
   "author": "Saro Vindigni",
   "license": "MIT",
   "dependencies": {
-    "react": "^15.0.2",
-    "react-native": "^0.26.1",
+    "react": "15.0.2",
+    "react-native": "0.26.2",
     "react-native-prefix-picker": "file:../",
     "world-countries": "^1.7.8"
   }
