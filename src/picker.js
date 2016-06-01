@@ -195,8 +195,7 @@ class CustomPicker extends Component {
                 itemStyle={itemStyle}
               >
                 {this.state.options.map(
-                  option =>
-                    this.renderItem(option)
+                  option => this.renderItem(option)
                 )}
               </Picker>
             </View>
