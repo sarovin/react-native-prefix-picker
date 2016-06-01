@@ -4,33 +4,26 @@ import { View } from 'react-native';
 
 import test from 'ava';
 import { Select, Picker } from '../';
-import { shallow } from 'enzyme';
-
-let prefix = '';
-
-const Test = React.createClass({
-
-  render() {
-    return (
-      <View>
-        <Select
-          ref={"SELET1"}
-          pickerRef={() => this.refs.picker}
-          selected={prefix}
-        />
-        <Picker
-          ref={'picker'}
-          selectedValue={'IT'}
-          onSubmit={(option) => {
-            prefix = option;
-          }}
-        />
-      </View>
-    )
-  }
-});
+import { render } from 'enzyme';
 
 test(t => {
-  const wrapper = shallow(<Test/>);
+  let prefix = '';
+  const wrapper = render(
+    <View>
+      <Select
+        ref={"SELET1"}
+        pickerRef={() => this.refs.picker}
+        selected={prefix}
+      />
+      <Picker
+        ref={'picker'}
+        selectedValue={'IT'}
+        onSubmit={(option) => {
+          prefix = option;
+        }}
+      />
+    </View>
+  );
+
   t.truthy(wrapper);
 });
