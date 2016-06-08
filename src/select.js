@@ -25,8 +25,8 @@ const propTypes = {
   height: PropTypes.number,
   pickerRef: PropTypes.func.isRequired,
   selected: PropTypes.string.isRequired,
-  style: PropTypes.object,
-  styleText: PropTypes.object,
+  style: View.propTypes.style,
+  styleText: Text.propTypes.style,
   disabled: PropTypes.bool,
 };
 
