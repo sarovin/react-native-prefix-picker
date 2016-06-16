@@ -47,7 +47,6 @@ class Select extends Component {
   }
 
   render() {
-
     return (
       <TouchableWithoutFeedback
         onPress={() => { this.props.pickerRef().show(); }}
