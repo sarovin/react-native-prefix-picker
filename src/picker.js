@@ -178,7 +178,6 @@ class CustomPicker extends Component {
                   Cancel
                 </Text>
               </TouchableOpacity>
-
               <TouchableOpacity onPress={this.onPressSubmit}>
                 <Text style={{ color: this.props.buttonColor }}>
                   Done
@@ -188,7 +187,6 @@ class CustomPicker extends Component {
 
             <View style={styles.mainBox}>
               <Picker
-                ref={'picker'}
                 style={styles.bottomPicker}
                 selectedValue={this.state.selectedOption}
                 onValueChange={(option) => this.onValueChange(option)}

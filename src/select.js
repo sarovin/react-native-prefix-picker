@@ -13,26 +13,28 @@ const SELECT = 'SELECT';
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: 'white',
+    width: 50,
+    height: 64,
     borderWidth: 0,
     borderStyle: 'solid',
     borderBottomColor: 'rgba(0, 0, 0, 0.12)',
     borderBottomWidth: 1,
+    alignItems: 'center',
+  },
+  label: {
+    margin: 7,
   },
 });
 
 const propTypes = {
-  width: PropTypes.number,
-  height: PropTypes.number,
   pickerRef: PropTypes.func.isRequired,
-  selected: PropTypes.string.isRequired,
   style: View.propTypes.style,
-  styleText: Text.propTypes.style,
+  styleValue: Text.propTypes.style,
   disabled: PropTypes.bool,
-};
-
-const defaultProps = {
-  width: 200,
-  height: 40,
+  styleLabel: Text.propTypes.style,
+  value: PropTypes.string.isRequired,
+  label: PropTypes.string,
 };
 
 class Select extends Component {
@@ -42,31 +44,22 @@ class Select extends Component {
 
     this.pageX = 0;
     this.pageY = 0;
-
-    const selected = props.selected;
-
-    this.state = {
-      value: selected,
-    };
-  }
-
-  componentWillReceiveProps(props) {
-    this.setState({
-      value: props.selected,
-    });
   }
 
   render() {
-    const { pickerRef, width, height, style, styleText } = this.props;
-    const dimensions = { width, height };
 
     return (
       <TouchableWithoutFeedback
-        onPress={() => { pickerRef().show(); }}
+        onPress={() => { this.props.pickerRef().show(); }}
         disabled={this.props.disabled}
       >
-        <View ref={SELECT} style={[styles.container, style, dimensions]}>
-          <Text style={styleText} >{this.state.value}</Text>
+        <View ref={SELECT} style={[styles.container, this.props.style]}>
+          {
+            this.props.label ?
+              <Text style={[styles.label, this.props.styleLabel]}>{this.props.label}</Text> :
+              null
+          }
+          <Text style={[styles.label, this.props.styleValue]}>{this.props.value}</Text>
         </View>
       </TouchableWithoutFeedback>
     );
@@ -74,6 +67,5 @@ class Select extends Component {
 }
 
 Select.propTypes = propTypes;
-Select.defaultProps = defaultProps;
 
 export default Select;
