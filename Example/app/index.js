@@ -28,8 +28,6 @@ class Login extends Component {
         }}
       >
         <Picker
-          ref="SELECT1"
-          pickerRef={() => this.refs.picker}
           style={{
             width: 80,
             height: 64,

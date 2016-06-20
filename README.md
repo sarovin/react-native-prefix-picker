@@ -25,7 +25,7 @@ import React, {
   View,
   Text,
 } from 'react-native';
-import { Select, Picker } from 'react-native-prefix-picker';
+import { Select} from 'react-native-prefix-picker';
 
 class Login extends Component {
 
@@ -46,25 +46,28 @@ class Login extends Component {
           padding: 20,
         }}
       >
-        <Select
-          ref="SELECT1"
-          pickerRef={() => this.refs.picker}
-          width={60}
-          height={45}
+        <Picker
           style={{
-            marginRight: 10,
-            padding: 6,
+            width: 80,
+            height: 64,
+            marginRight: 8,
           }}
-          styleText={{
-            color: '#333333',
-            fontSize: 20,
-            fontFamily: 'Avenir-Roman',
+          styleLabel={{
+            fontSize: 14,
           }}
-          selected={this.state.prefix}
+          styleValue={{
+            fontSize: 14,
+          }}
+          transparent
+          onSubmit={(option) => {
+            this.setState({
+              prefix: option,
+            });
+          }}
         />
         <Text
           style={{
-            fontSize: 20,
+            fontSize: 40,
             textAlign: 'center',
             margin: 10,
             color: '#f87f1d',
@@ -72,15 +75,6 @@ class Login extends Component {
         >
           TEST
         </Text>
-        <Picker
-          ref={'picker'}
-          selectedValue={'IT'}
-          onSubmit={(option) => {
-            this.setState({
-              prefix: option,
-            });
-          }}
-        />
       </View>
     );
   }
@@ -90,23 +84,16 @@ export default Login;
 ```
 
 ## Configuration
-##### Select:
-| Property | Type | Default | Description |
-|---------------|----------|--------------|----------------------------------------------------------------|
-| width | number | 200 | Width of the selection |
-| height | number | 40 | Height of the selection |
-| pickerRef | function | required | Reference to <Picker /> to display the selection menu |
-| selected | string | required | The value to be displayed. |
-| style | object | | Custom styles to be applied if supplied |
-| styleText | object | | Custom styles to be applied if supplied |
-| disabled | bool | false | If true, disable all interactions for this component. |
 
 ##### Picker:
 | Property | Type | Default | Description |
 |---------------|----------|--------------|----------------------------------------------------------------|
-| buttonColor | string | #007AFF | Custom styles to be applied if supplied. |
-| selectedValue | string | null | The default value. |
+| style | object | | Custom styles to be applied if supplied |
+| styleLabel | object | | Custom styles to be applied if supplied |
+| styleValue | object | | Custom styles to be applied if supplied |
 | itemStyle | object | | Custom styles to be applied if supplied. |
+| buttonColor | string | #007AFF | Custom styles to be applied if supplied. |
+| disabled | bool | false | If true, disable all interactions for this component. |
+| selectedValue | string | null | The default value. |
 | onSubmit | function | required | function will be called when item button is pressed |
 | transparent | bool | false | Transparent style for Modal |
-

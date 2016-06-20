@@ -132,9 +132,8 @@ class CustomPicker extends Component {
   }
 
   render() {
-    const itemStyle = this.props.itemStyle || {};
-    const modalBackgroundStyle = {
-      backgroundColor: this.props.transparent ? 'rgba(0, 0, 0, 0.5)' : '#f5fcff',
+    const modalBackground = {
+      backgroundColor: this.props.transparent ? 'rgba(0, 0, 0, 0.5)' : '#f5fcff'
     };
     return (
       <View>
@@ -161,7 +160,7 @@ class CustomPicker extends Component {
             });
           }}
         >
-          <View style={[styles.basicContainer, modalBackgroundStyle]}>
+          <View style={[styles.basicContainer, modalBackground]}>
             <View style={styles.modalContainer}>
               <View style={styles.buttonView}>
                 <TouchableOpacity onPress={this.onPressCancel}>
@@ -180,7 +179,7 @@ class CustomPicker extends Component {
                   style={styles.bottomPicker}
                   selectedValue={this.state.label}
                   onValueChange={(value) => this.setState({ label: value })}
-                  itemStyle={itemStyle}
+                  itemStyle={this.props.itemStyle}
                   mode={'dialog'}
                 >
                   {countries.map(
