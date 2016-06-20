@@ -6,7 +6,7 @@ import {
   View,
   Text,
 } from 'react-native';
-import { Select, Picker } from 'react-native-prefix-picker';
+import { Picker } from 'react-native-prefix-picker';
 
 class Login extends Component {
 
@@ -27,25 +27,30 @@ class Login extends Component {
           padding: 20,
         }}
       >
-        <Select
+        <Picker
           ref="SELECT1"
           pickerRef={() => this.refs.picker}
-          width={60}
-          height={45}
           style={{
-            marginRight: 10,
-            padding: 6,
+            width: 80,
+            height: 64,
+            marginRight: 8,
           }}
-          styleText={{
-            color: '#333333',
-            fontSize: 20,
-            fontFamily: 'Avenir-Roman',
+          styleLabel={{
+            fontSize: 14,
           }}
-          selected={this.state.prefix}
+          styleValue={{
+            fontSize: 14,
+          }}
+          transparent
+          onSubmit={(option) => {
+            this.setState({
+              prefix: option,
+            });
+          }}
         />
         <Text
           style={{
-            fontSize: 20,
+            fontSize: 40,
             textAlign: 'center',
             margin: 10,
             color: '#f87f1d',
@@ -53,16 +58,6 @@ class Login extends Component {
         >
           TEST
         </Text>
-        <Picker
-          ref={'picker'}
-          transparent
-          selectedValue={'IT'}
-          onSubmit={(option) => {
-            this.setState({
-              prefix: option,
-            });
-          }}
-        />
       </View>
     );
   }

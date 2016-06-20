@@ -49,8 +49,5 @@
     "react-native": "0.26.2",
     "react-native-mock": "^0.2.2"
   },
-  "homepage": "https://github.com/sarovin/react-native-prefix-picker",
-  "dependencies": {
-    "world-countries": "^1.7.8"
-  }
+  "homepage": "https://github.com/sarovin/react-native-prefix-picker"
 }
