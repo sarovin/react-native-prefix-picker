@@ -7,17 +7,31 @@ import {
   Text,
   View,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   Modal,
   Picker,
   Dimensions,
 } from 'react-native';
-import countries from 'world-countries';
+import countries from './prefix';
 
 const PickerItem = Picker.Item;
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+    width: 50,
+    height: 64,
+    borderWidth: 0,
+    borderStyle: 'solid',
+    borderBottomColor: 'rgba(0, 0, 0, 0.12)',
+    borderBottomWidth: 1,
+    alignItems: 'center',
+  },
+  label: {
+    margin: 7,
+  },
   basicContainer: {
     flex: 1,
     justifyContent: 'flex-end',
@@ -52,11 +66,16 @@ const propTypes = {
   onSubmit: PropTypes.func.isRequired,
   selectedValue: PropTypes.string,
   transparent: PropTypes.bool,
+  style: View.propTypes.style,
+  styleValue: Text.propTypes.style,
+  disabled: PropTypes.bool,
+  styleLabel: Text.propTypes.style,
 };
 
 const defaultProps = {
   buttonColor: '#007AFF',
   transparent: true,
+  selectedValue: 'IT',
 };
 
 class CustomPicker extends Component {
@@ -64,145 +83,117 @@ class CustomPicker extends Component {
   constructor(props) {
     super(props);
 
-    const prefix = this.getCountries();
-    const selected = this.findCountriesCca2(this.props.selectedValue);
-
     this.state = {
       modalVisible: false,
-      selectedOption: selected,
-      options: prefix,
+      label: this.props.selectedValue,
+      prefix: '',
     };
 
-    this.onPressCancel = this.onPressCancel.bind(this);
     this.onPressSubmit = this.onPressSubmit.bind(this);
-    this.onValueChange = this.onValueChange.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
-    this.onCreate();
-  }
-
-  onPressCancel() {
-    this.setState({
-      modalVisible: !this.state.modalVisible,
-    });
+    this.setPrefix();
   }
 
   onPressSubmit() {
-    this.onCreate();
-
     this.setState({
-      modalVisible: !this.state.modalVisible,
+      modalVisible: false,
     });
   }
 
-  onValueChange(option) {
-    this.setState({
-      selectedOption: option,
-    });
+  onChange(value) {
+    this.setState({ label: value });
+    this.setPrefix(value);
   }
 
-  onCreate() {
-    if (this.props.onSubmit) {
-      this.props.onSubmit(this.state.selectedOption);
-    }
-  }
-
-  getCountries() {
-    const array = [];
-    for (let i = 0; i < countries.length; i++) {
-      if (countries[i].callingCode.length > 1) {
-        for (let j = 0; j < countries[i].callingCode.length; j++) {
-          array.push({
-            cca2: `${countries[i].cca2} ( ${countries[i].callingCode[j]} )`,
-            callingCode: countries[i].callingCode[j],
+  setPrefix(value = this.state.label) {
+    countries.map(
+      (country) => {
+        if (country.iso2.toUpperCase() === value) {
+          return this.setState({
+            prefix: country.dialCode,
           });
         }
-      } else {
-        array.push({
-          cca2: countries[i].cca2,
-          callingCode: countries[i].callingCode[0],
-        });
+        return null;
       }
-    }
-    return array;
+    );
   }
 
-  findCountriesCca2(cca2) {
-    const prefix = this.getCountries();
+  renderItem(country) {
+    const label = country.name;
+    const value = country.iso2.toUpperCase();
 
-    for (let i = 0; i < prefix.length; i++) {
-      if (prefix[i].cca2 === cca2) {
-        return prefix[i].callingCode;
-      }
-    }
-    return prefix[0].callingCode;
-  }
-
-  show() {
-    this.setState({
-      modalVisible: true,
-    });
-  }
-
-  renderItem(option) {
-    let value = option.callingCode;
-    let label = option.cca2;
     return (
       <PickerItem
-        key={label}
-        value={value}
+        key={value}
         label={label}
+        value={value}
       />
     );
   }
 
   render() {
-    const itemStyle = this.props.itemStyle || {};
-    const modalBackgroundStyle = {
+    const modalBackground = {
       backgroundColor: this.props.transparent ? 'rgba(0, 0, 0, 0.5)' : '#f5fcff',
     };
-
     return (
-      <Modal
-        animationType={'fade'}
-        transparent={this.props.transparent}
-        visible={this.state.modalVisible}
-        onRequestClose={() => { this.onPressCancel(); }}
-      >
-        <View style={[styles.basicContainer, modalBackgroundStyle]}>
-          <View style={styles.modalContainer}>
-            <View style={styles.buttonView}>
-              <TouchableOpacity onPress={this.onPressCancel}>
-                <Text style={{ color: this.props.buttonColor }}>
-                  Cancel
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity onPress={this.onPressSubmit}>
-                <Text style={{ color: this.props.buttonColor }}>
-                  Done
-                </Text>
-              </TouchableOpacity>
-            </View>
-
-            <View style={styles.mainBox}>
-              <Picker
-                ref={'picker'}
-                style={styles.bottomPicker}
-                selectedValue={this.state.selectedOption}
-                onValueChange={(option) => this.onValueChange(option)}
-                itemStyle={itemStyle}
-              >
-                {this.state.options.map(
-                  option => this.renderItem(option)
-                )}
-              </Picker>
-            </View>
-
+      <View>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            this.setState({
+              modalVisible: true,
+            });
+          }}
+          disabled={this.props.disabled}
+        >
+          <View ref={'SELECT'} style={[styles.container, this.props.style]}>
+            <Text style={[styles.label, this.props.styleLabel]}>{this.state.label}</Text>
+            <Text style={[styles.label, this.props.styleValue]}>{this.state.prefix}</Text>
           </View>
-        </View>
-      </Modal>
+        </TouchableWithoutFeedback>
+        <Modal
+          animationType={'fade'}
+          transparent={this.props.transparent}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {
+            this.setState({
+              modalVisible: false,
+            });
+          }}
+        >
+          <View style={[styles.basicContainer, modalBackground]}>
+            <View style={styles.modalContainer}>
+              <View style={styles.buttonView}>
+                <TouchableOpacity style={{ height: 30 }} onPress={this.onPressCancel}>
+                  <Text style={{ color: this.props.buttonColor }}>
+                    Cancel
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ height: 30 }} onPress={this.onPressSubmit}>
+                  <Text style={{ color: this.props.buttonColor }}>
+                    Done
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.mainBox}>
+                <Picker
+                  style={styles.bottomPicker}
+                  selectedValue={this.state.label}
+                  onValueChange={(value) => this.onChange(value)}
+                  itemStyle={this.props.itemStyle}
+                  mode={'dialog'}
+                >
+                  {countries.map(
+                    country => this.renderItem(country)
+                  )}
+                </Picker>
+              </View>
+            </View>
+          </View>
+        </Modal>
+      </View>
     );
   }
 }
