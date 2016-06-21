@@ -6,7 +6,7 @@
   "scripts": {
     "test": "ava --verbose 'test/*.test.js'",
     "test:watch": "npm run test -- --watch",
-    "eslint": "eslint index.js src/ test/; exit 0;"
+    "eslint": "eslint index.js src/ ; exit 0;"
   },
   "ava": {
     "babel": "inherit",
