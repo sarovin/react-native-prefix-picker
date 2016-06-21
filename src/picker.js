@@ -90,6 +90,7 @@ class CustomPicker extends Component {
     };
 
     this.onPressSubmit = this.onPressSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
@@ -97,17 +98,20 @@ class CustomPicker extends Component {
   }
 
   onPressSubmit() {
-    this.setPrefix();
-
     this.setState({
       modalVisible: false,
     });
   }
 
-  setPrefix() {
+  onChange(value) {
+    this.setState({ label: value });
+    this.setPrefix(value);
+  }
+
+  setPrefix(value = this.state.label) {
     countries.map(
       (country) => {
-        if (country.iso2.toUpperCase() === this.state.label) {
+        if (country.iso2.toUpperCase() === value) {
           return this.setState({
             prefix: country.dialCode,
           });
@@ -116,7 +120,6 @@ class CustomPicker extends Component {
       }
     );
   }
-
 
   renderItem(country) {
     const label = country.name;
@@ -133,7 +136,7 @@ class CustomPicker extends Component {
 
   render() {
     const modalBackground = {
-      backgroundColor: this.props.transparent ? 'rgba(0, 0, 0, 0.5)' : '#f5fcff'
+      backgroundColor: this.props.transparent ? 'rgba(0, 0, 0, 0.5)' : '#f5fcff',
     };
     return (
       <View>
@@ -163,12 +166,12 @@ class CustomPicker extends Component {
           <View style={[styles.basicContainer, modalBackground]}>
             <View style={styles.modalContainer}>
               <View style={styles.buttonView}>
-                <TouchableOpacity onPress={this.onPressCancel}>
+                <TouchableOpacity style={{ height: 30 }} onPress={this.onPressCancel}>
                   <Text style={{ color: this.props.buttonColor }}>
                     Cancel
                   </Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this.onPressSubmit}>
+                <TouchableOpacity style={{ height: 30 }} onPress={this.onPressSubmit}>
                   <Text style={{ color: this.props.buttonColor }}>
                     Done
                   </Text>
@@ -178,7 +181,7 @@ class CustomPicker extends Component {
                 <Picker
                   style={styles.bottomPicker}
                   selectedValue={this.state.label}
-                  onValueChange={(value) => this.setState({ label: value })}
+                  onValueChange={(value) => this.onChange(value)}
                   itemStyle={this.props.itemStyle}
                   mode={'dialog'}
                 >
