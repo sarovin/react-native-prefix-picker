@@ -47,12 +47,12 @@ const styles = StyleSheet.create({
   },
 
   buttonView: {
-    width: SCREEN_WIDTH,
     padding: 8,
     borderTopWidth: 0.5,
     borderTopColor: 'lightgrey',
     justifyContent: 'space-between',
     flexDirection: 'row',
+    alignItems: 'center',
   },
 
   bottomPicker: {
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
 const propTypes = {
   buttonColor: PropTypes.string,
   itemStyle: PropTypes.object,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
   selectedValue: PropTypes.string,
   transparent: PropTypes.bool,
   style: View.propTypes.style,
@@ -166,11 +166,6 @@ class CustomPicker extends Component {
           <View style={[styles.basicContainer, modalBackground]}>
             <View style={styles.modalContainer}>
               <View style={styles.buttonView}>
-                <TouchableOpacity style={{ height: 30 }} onPress={this.onPressCancel}>
-                  <Text style={{ color: this.props.buttonColor }}>
-                    Cancel
-                  </Text>
-                </TouchableOpacity>
                 <TouchableOpacity style={{ height: 30 }} onPress={this.onPressSubmit}>
                   <Text style={{ color: this.props.buttonColor }}>
                     Done
