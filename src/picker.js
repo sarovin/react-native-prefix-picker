@@ -97,6 +97,14 @@ class CustomPicker extends Component {
     this.setPrefix();
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.prefix !== this.state.prefix) {
+      if (this.props.onSubmit) {
+        this.props.onSubmit(nextState.prefix);
+      }
+    }
+  }
+
   onPressSubmit() {
     this.setState({
       modalVisible: false,
