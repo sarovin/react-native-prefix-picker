@@ -690,7 +690,8 @@ const allCountries = [
     'Grenada',
     'translation': {
       'it': 'Grenada',
-    },'gd',
+    },
+    'gd',
     '1473',
   ],
   [
@@ -842,7 +843,8 @@ const allCountries = [
     
     'translation': {
       'it': 'Italia',
-    },'it',
+    },
+    'it',
     '39',
     '+.. ... ......',
     0,
@@ -1080,7 +1082,7 @@ const allCountries = [
     'translation': {
       'it': 'Mauritius',
     },
-  'mu',
+    'mu',
     '230',
   ],
   [
