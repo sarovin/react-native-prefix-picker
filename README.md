@@ -97,3 +97,10 @@ export default Login;
 | selectedValue | string | null | The default value. |
 | onSubmit | function | required | function will be called when item button is pressed |
 | transparent | bool | false | Transparent style for Modal |
+
+## Donate
+------
+
+* Bitcoin (BTC): 1Eca2r87M5iBMPedAaNLvNpqnSjxBeGiE8
+* Etherium (ETH): 0xf6CEe7BbaF05702a55d2579A89081063dc15Ff72
+* Litecoin (LTC): LaN2fKHPrRMLQqC7C3ngLUnJPNoAeW41W7
